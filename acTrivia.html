@@ -1,0 +1,93 @@
+First website. Used to practice HTML/CS/JS
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trivia page</title>
+	<script>
+	
+		/**
+		* function to validate user input answers
+		* listens for buttons that are clicked to validate answers
+		* changes certain <p> tags when the answers have been validated
+		*
+		* param: clicked_id: the id of the button that was clicked
+		* return: text that shows whether or not the answer was correct
+		*/
+		function validateAns(clicked_id){
+			var input, text;
+			//alert(clicked_id);
+			
+			//x = document.getElementById(clicked_id);
+			if(clicked_id == "q1"){
+				input = document.getElementById("ans1").value;
+				if(input.toLowerCase() == "yes"){
+					text = "Correct";
+				} else{
+					text = "Try again..."
+				}
+				document.getElementById("check1").innerHTML = text;
+			}//end ID check for 1st question 1
+			
+			//Doesn't get up to the second question for some reason (resolved 2-8-16)
+			else if(clicked_id == "q2"){
+				input = document.getElementById("ans2").value;
+				if(input.toLowerCase() == "coffee"){
+					text = "Correct";
+				} else{
+					text = "Try Again..."
+				}
+				document.getElementById("check2").innerHTML = text;
+			}//end id check for the second question
+			
+			else if(clicked_id == "q3"){
+				input = document.getElementById("ans3").value;
+				if(input.toLowerCase() == "drawing" || input.toLowerCase() == "coding" 
+				   || input.toLowerCase() == "gaming"){
+					text = "Correct";
+				} else{
+					text = "Try Again..."
+				}
+				document.getElementById("check3").innerHTML = text;
+			}//end id check for the third question	
+		}//end validate function
+		
+		
+		/**
+		* function that checks how many user input answers were correct
+		* checks all of the p tags for "Correct" text
+		*
+		* param: -none-
+		* return: an alert telling user how many questions were correct
+		*/
+		/**function checkAll(){
+			if(document.getElementById("check1").value.toLowerCase() == "correct"
+			&& document.getElementById("check2").value.toLowerCase() == "correct"
+			&& document.getElementById("check3").value.toLowerCase() == "correct"){
+				alert("Congrats, you're an expert!");
+			} else{
+				alert("Read the site a little more!");
+			}
+		}//end check function*/
+	</script>
+</head>
+<body>
+
+	<p>Question 1: ('yes' / 'no') Ariana is 165.1 cm tall</p>
+	<input id="ans1"/>
+	<button type="button" id="q1" onclick="validateAns(this.id)">Check Answer</button>
+	<p id="check1"></p>
+	
+	<p>Question 2: What does Ariana dislike?</p>
+	<input id="ans2"/>
+	<button type="button" id="q2" onclick="validateAns(this.id)">Check Answer</button>
+	<p id="check2"></p>
+	
+	<p>Question 3: List ONE of Ariana's hobbies.</p>
+	<input id="ans3"/>
+	<button type="button" id="q3" onClick="validateAns(this.id)">Check Answer</button>
+	<p id="check3"></p>
+	
+	<a href="acSite.html"><h5>Click here to go back</h5></a>
+
+</body>
+</html>
